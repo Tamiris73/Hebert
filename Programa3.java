@@ -1,24 +1,19 @@
-package javateste;
-
 import java.io.*;
 import java.util.Arrays;
 
 public class Programa3 {
 	
 	public static void main(String args[]) throws IOException {
-		//Localizando o Arquivo (Colocando seu path)
-        FileInputStream stream = new FileInputStream("C:\Users\User\Desktop\Tarefas 3 ano\Aplicações Moveis\hebert\\arquivo.txt");
-        InputStreamReader reader = new InputStreamReader(stream);
-        BufferedReader br = new BufferedReader(reader);
-        String linha = br.readLine();
-        
-        //Recebendo os Inputs do arquivo
+        FileInputStream arquivo = new FileInputStream("C:\Users\User\Desktop\Tarefas 3 ano\Aplicações Moveis\hebert\arquivo.txt");
+        InputStreamReader input = new InputStreamReader(arquivo);
+        BufferedReader l = new BufferedReader(input);
+        String  linha = l.readLine();
         String [] input = new String[2];
         int i = -1;        
         while(linha != null) {
         	i = i + 1;
             input[i] = linha;
-            linha = br.readLine();
+            linha = l.readLine();
         }
         String[] input1 = input[0].split(" ");
         String[] input2 = input[1].split(" ");
@@ -28,8 +23,6 @@ public class Programa3 {
         	input3[j] = Integer.parseInt(input1[j]);
         	input4[j] = Integer.parseInt(input2[j]);
         }
-        
-        //Funcionamento do programa
         if(input4[0] >= input3[0] && input4[0] <= input3[2] && input4[1] >= input3[1] && input4[1] <= input3[3]) {
         	System.out.println("1");        	
         } else {

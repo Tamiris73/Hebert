@@ -1,38 +1,30 @@
-package javateste;
-
 import java.io.*;
 import java.util.Arrays;
 
 public class Programa1 {
 	
 	public static void main(String args[]) throws IOException {
-		//Localizando o Arquivo (Colocando seu path)
-        FileInputStream stream = new FileInputStream("C:\Users\User\Desktop\Tarefas 3 ano\Aplicações Moveis\hebert\\arquivo.txt");
-        InputStreamReader reader = new InputStreamReader(stream);
-        BufferedReader br = new BufferedReader(reader);
-        String linha = br.readLine();
-        
-        //Recebendo os Inputs do arquivo
+        FileInputStream arquivo = new FileInputStream("C:\Users\User\Desktop\Tarefas 3 ano\Aplicações Moveis\hebert\arquivo.txt");
+        InputStreamReader input = new InputStreamReader(arquivo);
+        BufferedReader l = new BufferedReader(input);
+        String  linha = l.readLine();
         String [] input = new String[3];
         int i = -1;        
         while(linha != null) {
         	i = i + 1;
             input[i] = linha;
-            linha = br.readLine();
+            linha = l.readLine();
         }
-        String[] TamanhoSeparado = input[2].split(" ");
-
-        //Funcionamento do programa
+        String[] tamanho = input[2].split(" ");
         int m = 0;
         int s = 0;
-        for(int k=0; k < TamanhoSeparado.length; k++) {
-        	m += Integer.parseInt(TamanhoSeparado[k]); 
+        for(int k=0; k < tamanho.length; k++) {
+        	m += Integer.parseInt(tamanho[k]); 
         }
         m = m / Integer.parseInt(input[0]);
-        
         while(m > 0) {
-        	for(int k=0; k < TamanhoSeparado.length; k++) {
-            	s += Integer.parseInt(TamanhoSeparado[k]) / m;
+        	for(int k=0; k < tamanho.length; k++) {
+            	s += Integer.parseInt(tamanho[k]) / m;
         	}
         	if(s == Integer.parseInt(input[0])) {
         		System.out.println(m);
